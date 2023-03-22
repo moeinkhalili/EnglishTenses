@@ -11,44 +11,45 @@
       crossorigin="anonymous"
     ></script>
     <style>
-        @import 'IRANYekanMedium.ttf';
+      @import "IRANYekanMedium.ttf";
 
-        * {
-            font-family: 'iranyekan';
-        }
-        #root {
-            margin: 0 auto;
-            text-align: center;
-            direction: rtl;
-        }
+      * {
+        font-family: "iranyekan";
+      }
+      
+      #root {
+        margin: 0 auto;
+        text-align: center;
+        direction: rtl;
+      }
 
-        input[type=text] {
-            padding: 3px;
-            font-size: 12px;
-        }
+      input[type="text"] {
+        padding: 3px;
+        font-size: 12px;
+      }
 
-        input:focus {
-            outline: none;
-        }
+      input:focus {
+        outline: none;
+      }
 
-        .item {
-            margin: 10px;
-        }
+      .item {
+        margin: 10px;
+      }
 
-        .black {
-            background-color: black;
-        }
+      .black {
+        background-color: black;
+      }
 
-        .ltr {
-            direction: ltr !important;
-            unicode-bidi: isolate;
-        }
+      .ltr {
+        direction: ltr !important;
+        unicode-bidi: isolate;
+      }
     </style>
   </head>
   <body>
     <div id="root">
-        <h1>English present tenses</h1>
-        <div id="items"></div>
+      <h1>English present tenses</h1>
+      <div id="items"></div>
     </div>
   </body>
   <script>
@@ -179,7 +180,7 @@
           id: 25,
           persian: "از دیشب تا به حال دارد بازی میکند.",
           english: "She has been playing since last night.",
-        }
+        },
       ];
 
       items.map((item) => {
@@ -193,15 +194,15 @@
         `);
       });
 
-
-      $("#root #items").append(output.sort(() => 0.5 - Math.random()).join(" "));
+      $("#root #items").append(
+        output.sort(() => 0.5 - Math.random()).join(" ")
+      );
     };
 
     const showEnglish = (id) => {
-        $(`#english_${id}`).toggleClass('black');
-    }
+      $(`#english_${id}`).toggleClass("black");
+    };
 
     initial();
-
   </script>
 </html>
