@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grammer</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.js"
+      integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        @import 'IRANYekanMedium.ttf';
+
+        * {
+            font-family: 'iranyekan';
+        }
+        #root {
+            margin: 0 auto;
+            text-align: center;
+            direction: rtl;
+        }
+
+        input[type=text] {
+            padding: 3px;
+            font-size: 12px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .item {
+            margin: 10px;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .ltr {
+            direction: ltr !important;
+            unicode-bidi: isolate;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+        <h1>English present tenses</h1>
+        <div id="items"></div>
+    </div>
+  </body>
+  <script>
+    const initial = () => {
+      const output = [];
+      let items = [
+        {
+          id: 1,
+          persian: "کانادا کشور سردی است.",
+          english: "Canada is a cold country.",
+        },
+        {
+          id: 2,
+          persian: "سارا معلم است.",
+          english: "Sarah is a teacher.",
+        },
+        {
+          id: 3,
+          persian: "خواهرم زیاد سیگار می کشد.",
+          english: "My sister smokes a lot.",
+        },
+        {
+          id: 4,
+          persian: "من صبح ها ورزش میکنم.",
+          english: "I exercise in the morning.",
+        },
+        {
+          id: 5,
+          persian: "سارا پنیر دوست ندارد.",
+          english: "Sarah does not like cheese.",
+        },
+        {
+          id: 6,
+          persian: "خورشید به دور زمین نمیچرخد.",
+          english: "The sun does not revolve around the earth.",
+        },
+        {
+          id: 7,
+          persian: "دانشمندان دارند در مورد مغز انسان تحقیق میکند.",
+          english: "Scientists are researching the human brain.",
+        },
+        {
+          id: 8,
+          persian: "سارا دارد یک کتاب گرامر می نویسد.",
+          english: "Sara is writing a grammar book.",
+        },
+        {
+          id: 9,
+          persian: "من دارم به مدرسه میروم.",
+          english: "I am going to school.",
+        },
+        {
+          id: 10,
+          persian: "سارا دارد صدایم می کند.",
+          english: "Sarah is calling me.",
+        },
+        {
+          id: 11,
+          persian: "او در حال انجام ماموریت مهمی است.",
+          english: "He is on an important mission.",
+        },
+        {
+          id: 12,
+          persian: "لباس سارا قرمز است.",
+          english: "Sara's dress is red.",
+        },
+        {
+          id: 13,
+          persian: "چیزی برای خوردن داریم؟",
+          english: "do we have anything to eat",
+        },
+        {
+          id: 14,
+          persian: "شیر در یخچال وجود دارد.",
+          english: "There is milk in the fridge.",
+        },
+        {
+          id: 15,
+          persian: "من این کتاب را قرض گرفته ام.",
+          english: "I have borrowed this book.",
+        },
+        {
+          id: 16,
+          persian: "سارا به مدرسه رفته است.",
+          english: "Sara has gone to school.",
+        },
+        {
+          id: 17,
+          persian: "7 ساعت است که چیزی نخورده ای.",
+          english: "You haven't eaten for 7 hours.",
+        },
+        {
+          id: 18,
+          persian: "سارا این فیلم را دیده است.",
+          english: "Sarah has seen this movie.",
+        },
+        {
+          id: 19,
+          persian: "من ظرف ها را شسته ام.",
+          english: "I have washed the dishes.",
+        },
+        {
+          id: 20,
+          persian: "او فارغ التحصیل شده است.",
+          english: "She has graduated.",
+        },
+        {
+          id: 21,
+          persian: "از دیشب نخوابیده ام.",
+          english: "I haven't slept since last night.",
+        },
+        {
+          id: 22,
+          persian: "بچه از یک ساعت پیش دارد گریه میکند.",
+          english: "The child has been crying for an hour.",
+        },
+        {
+          id: 23,
+          persian: "ما سه ساعت است که داریم تماس میگیریم.",
+          english: "We have been calling for three hours.",
+        },
+        {
+          id: 24,
+          persian: "از صبح تا حالا دارم درس میخوانم.",
+          english: "I have been studying since morning.",
+        },
+        {
+          id: 25,
+          persian: "از دیشب تا به حال دارد بازی میکند.",
+          english: "She has been playing since last night.",
+        }
+      ];
+
+      items.map((item) => {
+        output.push(`
+            <div class="item">
+                <input type="checkbox" id="input_${item.id}" onclick="showEnglish(${item.id})" />
+                <label for="input_${item.id}">${item.persian}</label>
+                <input class="ltr" type="text">
+                <span class="black ltr" id="english_${item.id}">${item.english}</span>
+            </div>
+        `);
+      });
+
+
+      $("#root #items").append(output.sort(() => 0.5 - Math.random()).join(" "));
+    };
+
+    const showEnglish = (id) => {
+        $(`#english_${id}`).toggleClass('black');
+    }
+
+    initial();
+
+  </script>
+</html>
