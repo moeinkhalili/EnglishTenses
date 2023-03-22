@@ -15,6 +15,7 @@
 
       * {
         font-family: "iranyekan";
+        user-select: none;
       }
       
       #root {
@@ -49,7 +50,7 @@
   <body>
     <div id="root">
       <h1>English present tenses</h1>
-      <div id="items"></div>
+      <div class="items"></div>
     </div>
   </body>
   <script>
@@ -194,7 +195,7 @@
         `);
       });
 
-      $("#root #items").append(
+      $("#root .items").append(
         output.sort(() => 0.5 - Math.random()).join(" ")
       );
     };
